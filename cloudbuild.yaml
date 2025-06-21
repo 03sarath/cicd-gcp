@@ -29,4 +29,8 @@ images:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
 
 # Optional: Add timeout for the build
-timeout: '1200s' 
+timeout: '1200s'
+
+# Logging configuration
+options:
+  logging: CLOUD_LOGGING_ONLY 

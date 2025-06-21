@@ -76,6 +76,10 @@ images:
 # Optional: Add timeout for the build
 timeout: '1800s'
 
+# Logging configuration
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # Optional: Add substitutions for custom values
 substitutions:
   _REGION: 'us-central1'
