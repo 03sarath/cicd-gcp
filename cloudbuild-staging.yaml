@@ -26,6 +26,18 @@ steps:
       - '--set-env-vars'
       - 'ENVIRONMENT=staging'
 
+  # Allow unauthenticated access to the Cloud Run service (Staging)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'services'
+      - 'add-iam-policy-binding'
+      - '$REPO_NAME-staging'
+      - '--region=us-central1'
+      - '--member=allUsers'
+      - '--role=roles/run.invoker'
+
 # Store images in Google Container Registry
 images:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME-staging:$COMMIT_SHA'
