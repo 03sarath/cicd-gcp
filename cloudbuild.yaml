@@ -24,18 +24,6 @@ steps:
       - '--port'
       - '8080'
 
-  # Allow unauthenticated access to the Cloud Run service
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args:
-      - 'run'
-      - 'services'
-      - 'add-iam-policy-binding'
-      - '$REPO_NAME'
-      - '--region=us-central1'
-      - '--member=allUsers'
-      - '--role=roles/run.invoker'
-
 # Store images in Google Container Registry
 images:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
