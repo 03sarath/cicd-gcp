@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return jsonify({
-        'message': 'Hello from Cloud Run!',
+        'message': 'Hello from Cloud Run! Psitron',
         'version': '1.0.0',
         'environment': os.getenv('ENVIRONMENT', 'production')
     })
